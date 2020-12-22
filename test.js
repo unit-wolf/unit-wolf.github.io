@@ -22,20 +22,17 @@ var myCookie = getCookie("language_choice")
 if (myCookie == null) {
     $('[lang]').hide();
     $('[lang="en"]').show();
-    document.getElementById('lang-switch').selectedIndex=0;
 }
 else
 {
     if (myCookie == "es") {
         $('[lang]').hide();
-        $('[lang="es"]').show();
-        document.getElementById('lang-switch').selectedIndex=1;
+        $('[lang="es"]').show();      
     }
     else
     {
         $('[lang]').hide();
         $('[lang="en"]').show();
-        document.getElementById('lang-switch').selectedIndex=0;
     } 
 }
 
@@ -50,22 +47,26 @@ $('#lang-switch').change(function () { // put onchange event when user select op
             document.cookie = lang_choice;
             $('[lang]').hide();
             $('[lang="en"]').show();
+            document.getElementById('lang-switch').selectedIndex=0;
         break;
         case 'es':
             lang_choice = "language_choice=es; expires=" + expiration_date.toUTCString(); + " path=/;"
             document.cookie = lang_choice;
             $('[lang]').hide();
             $('[lang="es"]').show();
+            document.getElementById('lang-switch').selectedIndex=1;
         break;
         default:
            if (myCookie == 'es') {
                $('[lang]').hide();
                $('[lang="es"]').show();
+               document.getElementById('lang-switch').selectedIndex=1;
            }
            else
            {
                $('[lang]').hide();
                $('[lang="en"]').show();
+               document.getElementById('lang-switch').selectedIndex=0;
            }
         }
 });
