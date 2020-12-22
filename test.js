@@ -22,17 +22,20 @@ var myCookie = getCookie("language_choice")
 if (myCookie == null) {
     $('[lang]').hide();
     $('[lang="en"]').show();
+    document.getElementById('lang-switch').selectedIndex=0;
 }
 else
 {
     if (myCookie == "es") {
         $('[lang]').hide();
         $('[lang="es"]').show();
+        document.getElementById('lang-switch').selectedIndex=1;
     }
     else
     {
         $('[lang]').hide();
         $('[lang="en"]').show();
+        document.getElementById('lang-switch').selectedIndex=0;
     } 
 }
 
